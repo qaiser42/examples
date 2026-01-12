@@ -14,6 +14,11 @@ func main() {
 				},
 			},
 			MachineType: pulumi.String("n1-standard-1"),
+			NetworkInterfaces: &compute.InstanceNetworkInterfaceArray{
+				&compute.InstanceNetworkInterfaceArgs{
+					Network: pulumi.String("cloud-run-tst"),
+				},
+			},
 		})
 		if err != nil {
 			return err
