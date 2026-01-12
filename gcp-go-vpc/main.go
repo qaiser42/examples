@@ -9,6 +9,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
+		cfg := config.New(ctx, "")
 		vpcName := cfg.Require("vpcName")
 
 		// Create an empty VPC Network
@@ -18,7 +19,7 @@ func main() {
 			AutoCreateSubnetworks: pulumi.Bool(false),
 			Description:           pulumi.String("An empty custom VPC created via Pulumi"),
 			// RoutingMode can be REGIONAL or GLOBAL
-			RoutingMode:           pulumi.String("REGIONAL"),
+			RoutingMode: pulumi.String("REGIONAL"),
 		})
 		if err != nil {
 			return err
