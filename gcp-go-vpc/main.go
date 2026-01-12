@@ -22,7 +22,6 @@ func main() {
 
 		// Export the Network ID and Name
 		ctx.Export("networkId", network.ID())
-		ctx.Export("networkName", network.Name())
 
 		return nil
 	})
