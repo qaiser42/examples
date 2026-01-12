@@ -16,7 +16,7 @@ func main() {
 			MachineType: pulumi.String("n1-standard-1"),
 			NetworkInterfaces: &compute.InstanceNetworkInterfaceArray{
 				&compute.InstanceNetworkInterfaceArgs{
-					Network: pulumi.String("vm-test-sn"),
+					Network: pulumi.String("cloud-run-tst"),
 				},
 			},
 		})
