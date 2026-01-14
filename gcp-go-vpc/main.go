@@ -3,17 +3,13 @@ package main
 import (
 	"github.com/pulumi/pulumi-gcp/sdk/v8/go/gcp/compute"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 
-		cfg := config.New(ctx, "")
-		vpcName := cfg.Require("vpcName")
-
 		// Create an empty VPC Network
-		network, err := compute.NewNetwork(ctx, vpcName, &compute.NetworkArgs{
+		network, err := compute.NewNetwork(ctx, "asd", &compute.NetworkArgs{
 			// AutoCreateSubnetworks = false makes it a "Custom Mode" VPC (empty)
 			// This is recommended for production to control IP ranges.
 			AutoCreateSubnetworks: pulumi.Bool(false),
